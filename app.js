@@ -20,4 +20,8 @@ app.use('/', item)
 var transaction = require('./routes/transaction')
 app.use('/', transaction)
 
+// INVOICES
+var invoice = require('./routes/invoice')
+app.use('/', invoice)
+
 app.listen(process.env.PORT || 3000);
