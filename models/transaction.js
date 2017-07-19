@@ -5,12 +5,9 @@ module.exports = function(sequelize, DataTypes) {
     CustomerId: DataTypes.INTEGER,
     quantity: DataTypes.INTEGER,
     InvoiceId: DataTypes.INTEGER
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
   });
+  
+  
+  
   return Transaction;
 };
