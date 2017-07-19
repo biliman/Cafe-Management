@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Transactions</title>
+    <%- include layout/link_head %>
+  </head>
+  <body>
+    <%- include layout/header %>    
+    
+    <h2 align="center">TRANSACTIONS</H2>
+    <p></p>
+    <table class="table table-hover">
+      <tr>
+        <th>No.</th>
+        <th>ITEM ID / NAME</th>
+        <th>CUSTOMER ID / NAME</th>
+        <th>QUANTITY</th>
+        <th>NOMOR INVOICE</th>
+        <th>ACTIONS</th>
+      </tr>
+      <tr>
+      
+        <td><%= 1 %>.</td>    
+        <td><%=  %></td>
+        <td><%=  %></td>
+        <td><%=  %></td>
+        <td><%=  %></td>
+        <td><a href="/transaction/edit/<%=  %>">EDIT</a> || <a href="/transaction/delete/<%=  %>" style="color:red" onclick="return confirm('Are you sure want to delete this record?')">DELETE</a></td> 
+      </tr>
+    
+    </table>
+  </body>
+</html>
