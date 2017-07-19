@@ -27,7 +27,7 @@ router.get('/items/add', (req, res, next) => {
 router.post('/items/add', (req, res, next) => {
   db.Item.create(req.body)
   .then(added => {
-    res.redirect('/item')
+    res.redirect('/items')
   })
   .catch(err => {
     res.send('Error = ' + err.message)
