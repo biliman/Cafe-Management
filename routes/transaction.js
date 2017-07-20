@@ -4,7 +4,9 @@ var router = express.Router();
 const db = require('../models');
 
 router.get('/transactions', (req, res, next) => {
-  db.Transaction.findAll()
+  db.Transaction.findAll({
+    where: {}
+  })
   .then(transactions => {
     res.render('transaction', {query: transactions})
   })

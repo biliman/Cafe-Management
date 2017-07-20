@@ -5,12 +5,12 @@ module.exports = function(sequelize, DataTypes) {
     no_hp: DataTypes.STRING,
     email: DataTypes.STRING,
     date_of_birth: DataTypes.DATE
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
   });
+  
+  Customer.associate = (models) => {
+    Customer.hasMany(models.Invoice)
+    Customer.hasMany(models.Transaction)
+  }
+  
   return Customer;
 };

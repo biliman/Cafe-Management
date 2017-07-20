@@ -4,13 +4,13 @@ module.exports = function(sequelize, DataTypes) {
     invoice_number: DataTypes.INTEGER,
     invoice_date: DataTypes.DATE,
     status: DataTypes.STRING,
-    total: DataTypes.INTEGER
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
+    total: DataTypes.INTEGER,
+    CustomerId: DataTypes.INTEGER
   });
+  
+  Invoice.associate = (models) => {
+    Invoice.hasMany(models.Transaction)
+  }
+  
   return Invoice;
 };

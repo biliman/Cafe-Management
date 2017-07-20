@@ -6,7 +6,9 @@ module.exports = function(sequelize, DataTypes) {
     price_selling: DataTypes.INTEGER
   });
   
-  
+  Item.associate = (models) => {
+    Item.hasMany(models.Transaction)
+  }
   
   return Item;
 };

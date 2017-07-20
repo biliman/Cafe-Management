@@ -5,7 +5,7 @@ let db = require('../models')
 router.get('/customers', function(req, res){
   db.Customer.findAll()
   .then(customer => {
-    res.render('customer',{query:customer})
+    res.render('customer', {query:customer})
   })
 })
 
