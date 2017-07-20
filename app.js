@@ -20,4 +20,9 @@ app.use('/', item)
 var transaction = require('./routes/transaction')
 app.use('/', transaction)
 
+// CUSTOMERS
+var customer = require('./routes/customer')
+app.use('/', customer)
+
+
 app.listen(process.env.PORT || 3000);

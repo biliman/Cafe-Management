@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>add item</title>
+    <%- include layout/link_head %>
+  </head>
+  <body>
+    <%- include layout/header %>
+
+    <div class="container">
+      <h3>CUSTOMER ADD FORM</h3>
+      <form action="/customers/add" method="post" class="form-horizontal">
+        <div class="form-group">
+          <label class="control-label col-sm-2">Customer Name :</label>
+          <div class="col-sm-10">
+            <p class="form-control-static"><input type="text" name="customer_name"/></p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2">Contact Number :</label>
+          <div class="col-sm-10">
+            <p class="form-control-static"><input type="text" name="no_hp"/></p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2">Email :</label>
+          <div class="col-sm-10">
+            <p class="form-control-static"><input type="text" name="email"/></p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2">Date Of Birth :</label>
+          <div class="col-sm-10">
+            <p class="form-control-static"><input type="date" name="date_of_birth"/></p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2"></label>
+          <div class="col-sm-10">
+            <input type="submit" class="btn btn-success" value="add Item"/>
+          </div>
+        </div>
+    </div>
+
+  </body>
+</html>

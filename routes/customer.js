@@ -2,24 +2,23 @@ let express = require('express')
 let router = express.Router()
 let db = require('../models')
 
-router.get('/', function(req, res){
+router.get('/customers', function(req, res){
   db.Customer.findAll()
   .then(customer => {
-    res.render('customers',{data_cus:customer})
-  // res.send("uhuuuuuy");
+    res.render('customer',{query:customer})
   })
 })
 
-router.get('/add_customers', function(req,res){
-  res.render('customers_add')
+router.get('/customers/add', function(req,res){
+  res.render('customer_add')
 })
 
-router.post('/add_customers', function(req, res){
+router.post('/customers/add', function(req, res){
   db.Customer.create({
-    customer_name: req.body.Name,
-    no_hp: req.body.Telephone,
+    customer_name: req.body.customer_name,
+    no_hp: req.body.no_hp,
     email: req.body.email,
-    date_of_birth: new Date(),
+    date_of_birth: req.body.date_of_birth,
     createdAt: new Date(),
     updatedAt: new Date()
   }).then(() =>{
