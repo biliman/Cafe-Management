@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Invoices</title>
+    <%- include layout/link_head %>
+  </head>
+  <body>
+    <%- include layout/header %>    
+    <!-- <%= JSON.stringify(query) %> -->
+    <!-- <%= JSON.stringify(query2) %> -->
+    <h2 align="center">INVOICES</H2>
+    <p></p>
+    <table class="table table-hover">
+      <tr>
+        <th>No.</th>
+        <th>INVOICE NUMBER</th>
+        <th>INVOICE DATE</th>
+        <th>CUSTOMER NAME</th>
+        <th>STATUS</th>
+        <th>TOTAL</th>
+        <th>ACTIONS</th>
+      </tr>
+      <tr>
+      <% query.forEach((invoice, nomor) => { %>
+        <!-- <%= JSON.stringify(invoice) %> -->
+        <td><%= nomor + 1 %>.</td>    
+        <td><%= invoice.invoice_number %></td>
+        <td><%= invoice.invoice_date%></td>
+        <td><%= query2[0].customer_name %></td>
+        <td><%= invoice.status %></td>
+        <td><%= invoice.total %></td>
+        <td><a href="/invoices/edit/<%= invoice.id %>">EDIT</a> || <a href="/invoices/delete/<%= invoice.id %>" style="color:red" onclick="return confirm('Are you sure want to delete this record?')">DELETE</a></td> 
+      </tr>
+    <%  }) %>
+    </table>
+  </body>
+</html>
