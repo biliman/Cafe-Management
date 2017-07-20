@@ -26,24 +26,24 @@ router.post('/customers/add', function(req, res){
   })
 })
 
-router.get('/edit/:id', function(req, res){
+router.get('/customers/edit/:id', function(req, res){
   db.Customer.findById(req.params.id)
-    .then ((customer) =>{
-    res.render('customers_edit', {data_cus:customer})
+    .then (customer => {
+    res.render('customer_edit', {query:customer})
   })
 })
 
-router.post('/edit/:id', function(req, res){
+router.post('/customers/edit/:id', function(req, res){
   db.Customer.update({
-    customer_name: `${req.body.customer_name}`,
-    no_hp: `${req.body.no_hp}`,
-    email: `${req.body.email}`,
-    date_of_birth: `${req.body.date_of_birth}`,
+    customer_name: req.body.customer_name,
+    no_hp: req.body.no_hp,
+    email: req.body.email,
+    date_of_birth: req.body.date_of_birth,
     createdAt: new Date(),
     updatedAt: new Date()
   },{
     where: {
-      id:`${req.params.id}`
+      id:req.params.id
     }
   }).then(() =>{
     res.redirect('/customers')
@@ -51,7 +51,7 @@ router.post('/edit/:id', function(req, res){
 })
 
 
-router.get('/delete/:id', function(req, res){
+router.get('/customers/delete/:id', function(req, res){
   db.Customer.destroy({
     where:{id:req.params.id}
   }).then(()=>{

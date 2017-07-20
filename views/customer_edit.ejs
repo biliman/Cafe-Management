@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>edit item</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+      <h3>CUSTOMER EDIT FORM</h3>
+      <form action="/customers/edit/<%= query.id %>" method="post" class="form-horizontal">
+        <div class="form-group">
+          <label class="control-label col-sm-2">Customer Name :</label>
+          <div class="col-sm-10">
+            <p class="form-control-static"><input value="<%= query.customer_name %>" type="text" name="customer_name" /></p>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label class="control-label col-sm-2">Contact Number :</label>
+          <div class="col-sm-10">
+            <p class="form-control-static"><input value="<%= query.no_hp %>" type="text" name="no_hp" /></p>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label class="control-label col-sm-2">Email :</label>
+          <div class="col-sm-10">
+            <p class="form-control-static"><input value="<%= query.email %>" type="text" name="email" /></p>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label class="control-label col-sm-2">Date Of Birth :</label>
+          <div class="col-sm-10">
+            <p class="form-control-static"><input value="<%= query.date_of_birth %>" type="text" name="date_of_birth" /></p>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label class="control-label col-sm-2"></label>
+          <div class="col-sm-10">
+            <input type="submit" class="btn btn-success" value="Edit Customer" /> 
+          </div>
+        </div>
+      </div>
+  
+    </form>
+  </body>
+</html>
