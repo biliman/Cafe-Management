@@ -7,7 +7,9 @@ module.exports = function(sequelize, DataTypes) {
   });
   
   Item.associate = (models) => {
-    Item.hasMany(models.Transaction)
+    Item.belongsToMany(models.Customer, {
+      through : 'Customer_Item'
+    })
   }
   
   return Item;

@@ -8,9 +8,7 @@ module.exports = function(sequelize, DataTypes) {
     CustomerId: DataTypes.INTEGER
   });
   
-  Invoice.associate = (models) => {
-    Invoice.hasMany(models.Transaction)
-  }
+  
   
   return Invoice;
 };

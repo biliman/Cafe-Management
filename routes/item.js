@@ -68,7 +68,7 @@ router.get('/items/delete/:id', (req, res, next) => {
     where: {id: req.params.id}
   })
   .then(() => {
-    res.redirect('/item')
+    res.redirect('/items')
   })
   .catch(err => {
     res.send("Error : " + err.message);
