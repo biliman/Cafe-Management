@@ -16,11 +16,18 @@ router.get('/invoices', (req, res, next) => {
 })
 
 router.get('/invoices/add', (req, res, next) => {
-  res.render('invoice_add', {})
+  db.Customer.findAll()
+  .then(customer => {
+    res.render('invoice_add', {query: customer})
+  })
 })
 
 router.post('/invoices/add', (req, res, next) => {
-  
+  db.Invoice.create({
+    invoice_number: req.body.invoice_number,
+    invoice_date: req.body.invoice_date,
+    
+  })
 })
 
 module.exports = router

@@ -7,7 +7,7 @@
   </head>
   <body>
     <%- include layout/header %>    
-    <%= JSON.stringify(query) %>
+    <!-- <%= JSON.stringify(query) %> -->
     <h2 align="center">TRANSACTIONS</H2>
     <p></p>
     <table class="table table-hover">
@@ -16,17 +16,21 @@
         <th>CUSTOMER NAME</th>
         <th>ITEM NAME</th>
         <th>QUANTITY</th>
-        <th>NOMOR INVOICE</th>
         <th>ACTIONS</th>
       </tr>
       <tr>
-      <% query.forEach((customer, nomor) => { %>
+      <% query.forEach((transaction, nomor) => { %>
+        <!-- <%= JSON.stringify(transaction) %> -->
         <td><%= nomor + 1 %>.</td>    
-        <td><%= customer.customer_name %></td>
-        <td><%=  %></td>
-        <td><%=  %></td>
-        <td><%=  %></td>
-        <td><a href="/transaction/edit/<%=  %>">EDIT</a> || <a href="/transaction/delete/<%=  %>" style="color:red" onclick="return confirm('Are you sure want to delete this record?')">DELETE</a></td> 
+        <td><%= transaction.customer_name %></td>
+        <td>
+          <% transaction.Items.forEach(item => { %>
+            <p><li><%= item.nama_item %></p></li> 
+          <% }) %>
+        </td>
+        <td><%=transaction.qty %></td>
+        <td><a href="/edit/<%= transaction.id %><%=  %>">EDIT</a> || 
+          <a href="/delete/<%= transaction.id %><%=  %>" style="color:red" onclick="return confirm('Are you sure want to delete this record?')">DELETE</a></td> 
       </tr>
       <% }) %>
     </table>

@@ -7,11 +7,10 @@ module.exports = function(sequelize, DataTypes) {
     InvoiceId: DataTypes.INTEGER
   });
   
-  Transaction.associate = (models) => {
-    Transaction.belongsTo(models.Customer)
-    Transaction.belongsTo(models.Invoice)
-    Transaction.belongsTo(models.Item)
-  }
+  // Transaction.associate = (models) => {
+  //   Transaction.belongsTo(models.Customer)
+  //   Transaction.belongsTo(models.Item)
+  // }
   
   return Transaction;
 };

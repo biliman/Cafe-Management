@@ -6,7 +6,7 @@
   </head>
   <body>
     <%- include layout/header %>
-
+    <%= JSON.stringify(query) %>
     <div class="container">
       <h3>INVOICE ADD FORM</h3>
       <form action="/invoice/add" method="post" class="form-horizontal">
@@ -25,7 +25,14 @@
         <div class="form-group">
           <label class="control-label col-sm-2">Customer Name :</label>
           <div class="col-sm-10">
-            <p class="form-control-static"><input type="text" name="CustomerId" value=""/></p>
+            <p class="form-control-static">
+            <select name="CustomerId" class="control-label col-sm-2 btn btn-primary btn-select btn-select-light">
+            <% query.forEach(customer => { %>
+              <option value="<%= customer.id %>"><%= customer.customer_name %></option>
+            <% }) %>
+            </select>
+            </p>
+            <!-- <p class="form-control-static"><input type="text" name="CustomerId" value=""/></p> -->
           </div>
         </div>
         <div class="form-group">
